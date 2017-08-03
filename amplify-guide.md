@@ -185,10 +185,12 @@ Add the *stub_status* configuration as follows. You may also grab this config sn
 # cat > conf.d/stub_status.conf
 server {
     listen 127.0.0.1:80;
+    listen [::1]:80; 
     server_name 127.0.0.1;
     location /nginx_status {
         stub_status on;
         allow 127.0.0.1;
+        allow ::1;
         deny all;
     }
 }
